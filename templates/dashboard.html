@@ -1,0 +1,125 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Dashboard</title>  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+</head>  
+<style>
+    body {  
+        background-color: #f0f2f5; /* Light gray background for the body */  
+        font-family: Arial, sans-serif; /* Default font for the page */  
+    }  
+    
+    .container {  
+        background-color: #ffffff; /* White background for the container */  
+        border-radius: 8px; /* Rounded corners */  
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */  
+        padding: 40px; /* Padding inside the container */  
+        margin-top: 50px; /* Space from the top */  
+    }  
+    
+    h2 {  
+        color: #343a40; /* Dark color for the main heading */  
+        margin-bottom: 20px; /* Space below the heading */  
+        text-align: center; /* Center the heading */  
+    }  
+    
+    h3 {  
+        color: #495057; /* Darker color for subheadings */  
+        margin-top: 30px; /* Space above subheadings */  
+    }  
+    
+    p {  
+        font-size: 1.1em; /* Slightly larger font for welcome message */  
+        color: #6c757d; /* Gray color for the welcome text */  
+        text-align: center; /* Center the welcome message */  
+    }  
+    
+    .list-group-item {  
+        background-color: #e9ecef; /* Light gray background for list items */  
+        border: none; /* Remove border */  
+        color: #495057; /* Darker text color */  
+    }  
+    
+    .list-group-item:not(:last-child) {  
+        border-bottom: 1px solid #dee2e6; /* Add bottom border to list items */  
+    }  
+    
+    .form-group label {  
+        font-weight: bold; /* Bold labels */  
+        color: #495057; /* Darker color for labels */  
+    }  
+    
+    .btn-primary {  
+        background-color: #007bff; /* Primary button color */  
+        border-color: #007bff; /* Border color */  
+        transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */  
+    }  
+    
+    .btn-primary:hover {  
+        background-color: #0056b3; /* Darker blue on hover */  
+        border-color: #0056b3; /* Darker border on hover */  
+    }  
+    
+    .btn-danger {  
+        transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */  
+    }  
+    
+    .btn-danger:hover {  
+        background-color: #c82333; /* Darker red on hover */  
+        border-color: #bd2131; /* Darker red border on hover */  
+    }  
+    
+    .alert {  
+        margin-top: 20px; /* Space above the alert */  
+    }
+</style>
+<body>  
+    <div class="container mt-5">  
+        <h2>Dashboard</h2>  
+        <p>Welcome, {{ current_user.username }}!</p>  
+        
+        <h3>Your Points:</h3>  
+        {% if points %}  
+            <ul class="list-group">  
+                <li class="list-group-item">Math: {{ points.math }}</li>  
+                <li class="list-group-item">English: {{ points.english }}</li>  
+                <li class="list-group-item">Physics: {{ points.physics }}</li>  
+                <li class="list-group-item">Chemistry: {{ points.chemistry }}</li>  
+                <li class="list-group-item">Biology: {{ points.biology }}</li>  
+            </ul>  
+        {% else %}  
+            <p>No points recorded yet.</p>  
+        {% endif %}  
+
+        <h3>Add/Update Your Points:</h3>  
+        <form method="POST" action="{{ url_for('update_points') }}">  
+            <div class="form-group">  
+                <label for="math">Math</label>  
+                <input type="number" class="form-control" id="math" name="math" value="{{ points.math if points else 0 }}" required>  
+            </div>  
+            <div class="form-group">  
+                <label for="english">English</label>  
+                <input type="number" class="form-control" id="english" name="english" value="{{ points.english if points else 0 }}" required>  
+            </div>  
+            <div class="form-group">  
+                <label for="physics">Physics</label>  
+                <input type="number" class="form-control" id="physics" name="physics" value="{{ points.physics if points else 0 }}" required>  
+            </div>  
+            <div class="form-group">  
+                <label for="chemistry">Chemistry</label>  
+                <input type="number" class="form-control" id="chemistry" name="chemistry" value="{{ points.chemistry if points else 0 }}" required>  
+            </div>  
+            <div class="form-group">  
+                <label for="biology">Biology</label>  
+                <input type="number" class="form-control" id="biology" name="biology" value="{{ points.biology if points else 0 }}" required>  
+            </div>  
+            <button type="submit" class="btn btn-primary">Save Points</button>  
+        </form>  
+
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>  
+    </div>  
+</body>  
+</html>

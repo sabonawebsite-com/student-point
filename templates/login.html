@@ -1,0 +1,73 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Login</title>  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+</head>  
+<style>
+    body {  
+        background-color: #f8f9fa; /* Light gray background color */  
+        font-family: Arial, sans-serif; /* Default font */  
+    }  
+    
+    .container {  
+        background-color: white; /* White background for the container */  
+        border-radius: 8px; /* Rounded corners */  
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */  
+        padding: 40px; /* Padding inside the container */  
+        margin-top: 100px; /* Space from the top */  
+    }  
+    
+    h2 {  
+        color: #343a40; /* Dark color for headings */  
+        margin-bottom: 30px; /* Space below heading */  
+        text-align: center; /* Center the heading */  
+    }  
+    
+    .form-group label {  
+        font-weight: bold; /* Bold labels */  
+        color: #495057; /* Darker color for labels */  
+    }  
+    
+    .btn-primary {  
+        background-color: #007bff; /* Primary button color */  
+        border-color: #007bff; /* Border color */  
+        transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */  
+    }  
+    
+    .btn-primary:hover {  
+        background-color: #0056b3; /* Darker blue on hover */  
+        border-color: #0056b3; /* Darker border on hover */  
+    }  
+    
+    .alert {  
+        margin-top: 20px; /* Space above the alert */  
+    }
+</style>
+<body>  
+    <div class="container mt-5">  
+        <h2>Login</h2>  
+        {% with messages = get_flashed_messages() %}  
+            {% if messages %}  
+                <div class="alert alert-danger">  
+                    {{ messages[0] }}  
+                </div>  
+            {% endif %}  
+        {% endwith %}  
+        <form method="POST" action="{{ url_for('login') }}">  
+            <div class="form-group">  
+                <label for="username">Username</label>  
+                <input type="text" class="form-control" id="username" name="username" required>  
+            </div>  
+            <div class="form-group">  
+                <label for="password">Password</label>  
+                <input type="password" class="form-control" id="password" name="password" required>  
+            </div>  
+            <button type="submit" class="btn btn-primary">Login</button>  
+            <a href="{{ url_for('register') }}" class="btn btn-link">Register</a>  
+        </form>  
+    </div>  
+</body>  
+</html>

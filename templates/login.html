@@ -13,6 +13,7 @@
     }  
     
     .container {  
+     background-repeat: no-repeat;
         background-color: white; /* White background for the container */  
         border-radius: 8px; /* Rounded corners */  
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */  
@@ -48,7 +49,8 @@
 </style>
 <body>  
     <div class="container mt-5">  
-        <h2>Login</h2>  
+        <img src="/static/bru_wall.png" alt="">
+        <h2>Well come See Your Resualt</h2>  
         {% with messages = get_flashed_messages() %}  
             {% if messages %}  
                 <div class="alert alert-danger">  

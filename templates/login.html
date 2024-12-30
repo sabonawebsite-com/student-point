@@ -4,53 +4,130 @@
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Login</title>  
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">   -->
 </head>  
 <style>
     body {  
-        background-color: #f8f9fa; /* Light gray background color */  
-        font-family: Arial, sans-serif; /* Default font */  
+        font-family: Arial, sans-serif;  
+        background-color: #f4f4f4;  
+        color: #333;  
+        margin: 0;  
+        padding: 0;  
     }  
     
     .container {  
-     background-repeat: no-repeat;
-        background-color: white; /* White background for the container */  
-        border-radius: 8px; /* Rounded corners */  
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */  
-        padding: 40px; /* Padding inside the container */  
-        margin-top: 100px; /* Space from the top */  
+        background: white;  
+        max-width: 500px;  
+        margin: auto;  
+        padding: 20px;  
+        border-radius: 8px;  
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  
+    }  
+    
+    h1, h2 {  
+        text-align: center;  
     }  
     
     h2 {  
-        color: #343a40; /* Dark color for headings */  
-        margin-bottom: 30px; /* Space below heading */  
-        text-align: center; /* Center the heading */  
+        font-size: 1.2em;  
+        margin-bottom: 20px;  
     }  
     
-    .form-group label {  
-        font-weight: bold; /* Bold labels */  
-        color: #495057; /* Darker color for labels */  
-    }  
-    
-    .btn-primary {  
-        background-color: #007bff; /* Primary button color */  
-        border-color: #007bff; /* Border color */  
-        transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */  
-    }  
-    
-    .btn-primary:hover {  
-        background-color: #0056b3; /* Darker blue on hover */  
-        border-color: #0056b3; /* Darker border on hover */  
+    img {  
+        display: block;  
+        margin: 0 auto 20px;  
+        max-width: 100%;  
+        height: auto;  
     }  
     
     .alert {  
-        margin-top: 20px; /* Space above the alert */  
+        background-color: #f8d7da;  
+        color: #721c24;  
+        padding: 10px;  
+        border: 1px solid #f5c6cb;  
+        border-radius: 5px;  
+        margin-bottom: 20px;  
+    }  
+    
+    .form-group {  
+        margin-bottom: 15px;  
+    }  
+    
+    label {  
+        display: block;  
+        margin-bottom: 5px;  
+    }  
+    
+    input.form-control {  
+        width: 100%;  
+        padding: 10px;  
+        border: 1px solid #ced4da;  
+        border-radius: 5px;  
+        box-sizing: border-box;  
+    }  
+    
+    input.form-control:focus {  
+        border-color: #80bdff;  
+        outline: 0;  
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);  
+    }  
+    
+    .btn {  
+        display: inline-block;  
+        padding: 10px 15px;  
+        font-size: 16px;  
+        border-radius: 5px;  
+        transition: background-color 0.3s;  
+        text-align: center;  
+    }  
+    
+    .btn-primary {  
+        background-color: #007bff;  
+        color: white;  
+        border: none;  
+    }  
+    
+    .btn-primary:hover {  
+        background-color: #0056b3;  
+    }  
+    
+    .btn-link {  
+        color: white; 
+        text-decoration: none;  
+        border: 1px solid black;
+        margin-left: 20px;
+        background-color: green;
+        outline: none;
+        list-style: none;
+    }  
+    
+    .btn-link:hover {  
+        text-decoration: underline;  
+        border: 1px solid rgb(231, 6, 137);
+        padding: 10px 15px;
+        outline: none;
+        list-style: none;
+    }
+    .head{
+        color: rgb(6, 79, 237);
+        text-align: center;
+        font: 4em;
+    }
+    .head1{
+        color: rgb(245, 7, 205);
+        text-align: center;
+        font: 2em;
     }
 </style>
 <body>  
-    <div class="container mt-5">  
-        <img src="/static/bru_wall.png" alt="">
-        <h2>Well come See Your Resualt</h2>  
+    <div class="container mt-5"> 
+        <h1 class="head">Borana University</h1>
+        <img src="/static/bru_log.png" alt="University logo">
+        <h2 class="head1">Welcome to See Your Result</h2>  
+<img src="/static/bru_wall.png" alt="University Wall">
+<h1>This is only for Computer Science student</h1>
+<h2>If you are not a Computer Science student, then you can't see your result</h2>
+<h2>For other departments, contact us at <a href="mailto:sabonamarara53@gmail.com">sabonamarara53@gmail.com</a></h2>
         {% with messages = get_flashed_messages() %}  
             {% if messages %}  
                 <div class="alert alert-danger">  
@@ -68,7 +145,7 @@
                 <input type="password" class="form-control" id="password" name="password" required>  
             </div>  
             <button type="submit" class="btn btn-primary">Login</button>  
-            <a href="{{ url_for('register') }}" class="btn btn-link">Register</a>  
+          <a href="{{ url_for('register') }}" class="btn btn-link">Register</a>
         </form>  
     </div>  
 </body>  

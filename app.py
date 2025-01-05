@@ -14,7 +14,7 @@ login_manager.init_app(app)
 class User(UserMixin, db.Model):  
     id = db.Column(db.Integer, primary_key=True)  
     username = db.Column(db.String(150), unique=True, nullable=False)  
-    password = db.Column(db.String(150), nullable=False)  
+    password = db.Column(db.String(15), nullable=False)  
 
 # Student Points Model  
 class StudentPoints(db.Model):  
@@ -77,7 +77,8 @@ def login():
         if user and check_password_hash(user.password, password):  # Use hashed password check  
             login_user(user)  
             return redirect(url_for('dashboard'))  
-        flash('Invalid credentials. Please try again.')  
+        flash('Invalid credentials. Please try again❌👎.')
+           
     return render_template('login.html')
 
 @app.route('/dashboard')  

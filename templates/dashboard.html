@@ -113,11 +113,22 @@
     .btn-danger:hover {  
         background-color: #c82333;  
     }  
+
+    .students{
+        background: linear-gradient(267deg, rgb(224, 74, 51), rgb(215, 66, 200), rgb(8, 46, 235));
+        color: #f8f9fa;
+        padding: 10px 20px;
+    }
+    .stud-info{
+        background: linear-gradient(267deg, rgb(51, 224, 63), rgb(30, 28, 30), rgb(248, 0, 0));
+        color: #f8f9fa;  
+        padding: 10px 20px;
+    }
 </style>
 <body>  
     <div class="container mt-5">  
-        <h2>Keep Your password privatly</h2>  
-        <p>Welcome, {{ current_user.username }}!</p>  
+        <h2 class="stud-info">Keep Your password privately</h2>  
+        <p class="students">Welcome, {{ current_user.username }}!</p>  
         
         <h3>Your Points:</h3>  
         {% if points %}  
@@ -132,7 +143,7 @@
             <p>No points recorded yet.</p>  
         {% endif %}  
 
-        <h3>Updated</h3>  
+        <!-- <h3>Updated</h3>  
         <form method="POST" action="{{ url_for('update_points') }}">  
             <div class="form-group">  
                 <label for="math">Math</label>  
@@ -155,7 +166,8 @@
                 <input type="number" class="form-control" id="biology" name="biology" value="{{ points.biology if points else 0 }}" required>  
             </div>  
             <button type="submit" class="btn btn-primary">Save Points</button>  
-        </form>  
+        </form>   -->
+        <h3>if you have question contact us🤚 <span><a href="mailto:sabonamarara53@gmail.com">sabonamarara53@gmail.com</a></span></h3>
 
         <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>  
     </div>  

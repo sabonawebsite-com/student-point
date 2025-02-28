@@ -134,41 +134,40 @@
         {% if points %}  
             <ul class="list-group">  
                 <li class="list-group-item">CV: {{ points.math }}</li>  
-                <li class="list-group-item">English: {{ points.english }}</li>  
-                <li class="list-group-item">Physics: {{ points.physics }}</li>  
-                <li class="list-group-item">Chemistry: {{ points.chemistry }}</li>  
-                <li class="list-group-item">Biology: {{ points.biology }}</li>  
+                <li class="list-group-item">CD: {{ points.english }}</li>  
+                <li class="list-group-item">CS: {{ points.physics }}</li>  
+                <li class="list-group-item">RM: {{ points.chemistry }}</li>  
+                <li class="list-group-item">HCI: {{ points.biology }}</li>  
             </ul>  
         {% else %}  
             <p>No points recorded yet.</p>  
         {% endif %}  
 
-        <!-- <h3>Updated</h3>  
+     <!-- <h3>Updated</h3>  
         <form method="POST" action="{{ url_for('update_points') }}">  
             <div class="form-group">  
-                <label for="math">Math</label>  
+                <label for="math">computer Vision:</label>  
                 <input type="number" class="form-control" id="math" name="math" value="{{ points.math if points else 0 }}" required>  
             </div>  
             <div class="form-group">  
-                <label for="english">English</label>  
+                <label for="english">Comuter security:</label>  
                 <input type="number" class="form-control" id="english" name="english" value="{{ points.english if points else 0 }}" required>  
             </div>  
             <div class="form-group">  
-                <label for="physics">Physics</label>  
+                <label for="physics">Comp Desing:</label>  
                 <input type="number" class="form-control" id="physics" name="physics" value="{{ points.physics if points else 0 }}" required>  
             </div>  
             <div class="form-group">  
-                <label for="chemistry">Chemistry</label>  
+                <label for="chemistry">HCI:</label>  
                 <input type="number" class="form-control" id="chemistry" name="chemistry" value="{{ points.chemistry if points else 0 }}" required>  
             </div>  
             <div class="form-group">  
-                <label for="biology">Biology</label>  
+                <label for="biology">Research Method:</label>  
                 <input type="number" class="form-control" id="biology" name="biology" value="{{ points.biology if points else 0 }}" required>  
             </div>  
-            <button type="submit" class="btn btn-primary">Save Points</button>  
-        </form>   -->
+            <button type="submit" class="btn btn-primary">Save Points</button>   -->
+        </form>  
         <h3>if you have question contact us🤚 <span><a href="mailto:sabonamarara53@gmail.com">sabonamarara53@gmail.com</a></span></h3>
-
         <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>  
     </div>  
 </body>  
